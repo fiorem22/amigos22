@@ -1,0 +1,63 @@
+package com.test;
+
+import java.util.concurrent.TimeUnit;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class AmigosSearch {
+	private WebDriver driver;
+	
+	@Before
+	public void setup() {
+		
+		System.setProperty("webdriver.chrome.driver", "./src/test/resources/Chrome/chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://amigoscool.casa/");
+	}
+	
+	@Test
+	
+	public void testAmigos() {
+		
+			
+		
+		WebElement elements;
+		try {
+		   
+			elements = selectElement.findElement(By.xpath("//*[@id=\"SiteNav\"]/li[2]/a/span"));
+
+		} catch (NoSuchElementException e) { 
+		   
+		    selectElement.click();
+		    
+		    elements = selectElement.findElement(By.xpath("//*[@id=\"SiteNav\"]/li[2]/a/span"));
+		}
+		
+		elements.click();
+		
+	
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
+		WebElement price = driver.findElement(By.id("s-result-sort-select_2"));
+		price.click();
+	
+		
+		
+	}
+    
+	@After
+	
+	public void tearDown() {
+		
+		driver.quit();
+	}
+}
